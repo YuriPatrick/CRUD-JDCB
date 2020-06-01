@@ -1,0 +1,27 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class Conexao {
+
+	private static Connection connection;
+
+	public static Connection getConnection() throws Exception {
+
+		try {
+
+			if (connection == null || connection.isClosed()) {
+				
+				String url = "jdbc:mysql://localhost:3306/test";
+				Class.forName("com.mysql.jdbc.Driver");
+				connection = DriverManager.getConnection(url,"root","root");
+			}
+
+		} catch (Exception e) {
+			System.out.println("Erro ao conectar com a mysql :" + e.getMessage());
+		}
+		return connection;
+	}
+
+}

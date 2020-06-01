@@ -1,0 +1,139 @@
+ 
+ 
+
+ 
+
+.txt{
+    width: 100%;
+    padding: 9px 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.search{
+    width: 30%;
+    padding: 9px 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+search{
+    width: 100%;
+    padding: 9px 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btnsearch{
+     width: 20%;
+    background-color: #4DB6AC;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+.btn {
+    width: 30%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+.txt:hover {
+    background-color: white;
+}
+
+.divnovoproduto {
+	width: 60%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+
+.diventradadeproduto {
+	width: 60%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+
+.divsaidaproduto {
+	width: 60%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 20%;
+}
+
+
+ 
+
+
+
+
+
+.select-update-produto{
+	width: 97%;
+	background-color: #E6EE9C;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 6px 6px 6px 6px;
+	margin-left: 10px;
+}
+
+.divproduto {
+	width: 100%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 1px;
+}
+
+.lbl-update-produto{
+	margin-left: 10px;
+}
+
+.input-update-produto {
+	width:  97%;
+	background-color: #E6EE9C;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 6px 6px 6px 6px;
+	margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
