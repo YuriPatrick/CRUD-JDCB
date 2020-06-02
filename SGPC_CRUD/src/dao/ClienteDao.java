@@ -16,7 +16,7 @@ public class ClienteDao {
 	public void adiciona(Cliente cliente) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "insert into cliente (nome,sobrenome,cpf,dataNascimento,localidade)values (?,?,?,?,?)";
+			String sql = "insert into cliente (nome,sobrenome,cpf,data_nascimento,localidade)values (?,?,?,?,?)";
 			ps = conexao.prepareStatement(sql);
 			ps.setString(1, cliente.getNome());
 			ps.setString(2, cliente.getSobrenome());
@@ -111,7 +111,7 @@ public class ClienteDao {
 				cliente.setNome(rs.getString("nome"));
 				cliente.setSobrenome(rs.getString("sobrenome"));
 				cliente.setCpf(rs.getString("cpf"));
-				cliente.setDataNascimento(rs.getString("dataNascimento"));
+				cliente.setDataNascimento(rs.getString("data_nascimento"));
 				cliente.setLocalidade(rs.getString("localidade"));
 			}
 
