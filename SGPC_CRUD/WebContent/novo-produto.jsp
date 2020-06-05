@@ -16,7 +16,7 @@
 	background-color: #E8E8E8;
 	padding: 20px;
 	border-radius: 20px;
-	margin: 70px -900px;
+	margin: 65px -900px;
 }
 
 .div-interna-novo-produto {
