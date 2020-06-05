@@ -12,9 +12,15 @@ import javax.servlet.http.HttpSession;
 import dao.LoginDao;
 import model.Login;
 
-@WebServlet(urlPatterns = { "/login", "/autentica", "/logof" })
+@WebServlet(urlPatterns = { "/login", "/autentica", "/logof", "/salva-usuario", "/novo-usuario" })
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private static final String USUARIO = "user";
+
+	private static final String SENHA = "password";
+
+	private static final String EMAIL = "email";
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,39 +39,41 @@ public class LoginController extends HttpServlet {
 
 		if (uri.equalsIgnoreCase(path + "/login")) {
 			login(request, response);
+
 		}
-		if (uri.equalsIgnoreCase(path+"/autentica")) {
+
+		if (uri.equalsIgnoreCase(path + "/salva-usuario")) {
+			cadastrar(request, response);
+		}
+
+		if (uri.equalsIgnoreCase(path + "/autentica")) {
 			logar(request, response);
 		}
-		if (uri.equalsIgnoreCase(path+"/logof")) {
+		if (uri.equalsIgnoreCase(path + "/logof")) {
 			logof(request, response);
 		}
 
 	}
 
-	public void login(HttpServletRequest request, HttpServletResponse response)throws ServletException,IOException{
+	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/login.jsp").forward(request, response);
 	}
-	
-	
+
 	public void logar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-		String usuario = request.getParameter("usuario");
-		String senha = request.getParameter("senha");
+			String usuario = request.getParameter("usuario");
+			String senha = request.getParameter("senha");
 
-		
-	
-		Login login1 = new Login();
-		login1.setUsuario(usuario);
-		login1.setSenha(senha);
+			Login login1 = new Login();
+			login1.setUsuario(usuario);
+			login1.setSenha(senha);
 
-	
 			Login login = new LoginDao().logar(login1);
 
 			if (login != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("usuario_logado", login);
-				response.sendRedirect(request.getContextPath()+"/home.jsp");
+				response.sendRedirect(request.getContextPath() + "/home.jsp");
 			} else {
 				HttpSession session = request.getSession();
 				session.setAttribute("login_erro", "Usuario ou Senha invalido");
@@ -76,20 +84,34 @@ public class LoginController extends HttpServlet {
 			System.out.println(e.getMessage());
 		}
 	}
-	public void logof(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+
+	public void logof(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		response.sendRedirect(request.getContextPath()+"/login");
+		response.sendRedirect(request.getContextPath() + "/login");
+	}
+	
+	public void cadastrar(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		try {
+			LoginDao dao = new LoginDao();
+			Login login = new Login();
+
+			String user = request.getParameter(USUARIO);
+			String password = request.getParameter(SENHA);
+			String email = request.getParameter(EMAIL);
+			
+			login.setUsuario(user);
+			login.setSenha(password);
+			login.setEmail(email);
+			
+			dao.cadastrar(login);
+			
+			response.sendRedirect(request.getContextPath() + "/login");
+
+		} catch (Exception e) {
+			System.out.println("Erro : " + e.getMessage());
+		}
 	}
 
 }
-
-
-
-
-
-
-
-
-
-

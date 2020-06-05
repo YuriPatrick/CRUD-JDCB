@@ -3,17 +3,29 @@ package model;
 public class Login {
 
 	private long id;
+	private String email;
 	private String usuario;
 	private String senha;
 
 	public Login() {
 	}
 
-	public Login(long id, String usuario, String senha) {
+	public Login(long id, String usuario, String senha, String email) {
 		super();
 		this.id = id;
+		this.email = email;
 		this.usuario = usuario;
 		this.senha = senha;
+	}
+	
+	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public long getId() {

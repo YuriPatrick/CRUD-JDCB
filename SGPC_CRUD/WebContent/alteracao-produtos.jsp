@@ -7,6 +7,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="css/file3.css">
 <title>Lista de Produto</title>
+<style type="text/css">
+.div-lista {
+	position: absolute;
+	width: 80%;
+	height:300px;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 20px;
+	margin: 165px 15px;
+}
+
+</style>
 </head>
 <body>
 	<jsp:include page="home.jsp" />
@@ -44,10 +57,10 @@
 								<td>${produto.qnt}</td>
 								<td>${produto.obs}</td>
 								
-								<td style="width: 100px"><a href="<c:url value="/getId-produto?id=${produto.id}"/>">Alterar</a></td>
+								<td style="width: 80px"><a href="<c:url value="/getId-produto?id=${produto.id}"/>">Alterar</a></td>
 	
-								<td style="width: 100px"><a href="<c:url value="/remove-produto?id=${produto.id}"/>"
-									onclick="return confirm('Deseja realmente excluir o Produto')">Excluir</a></td>
+								<td style="width: 80px"><a href="<c:url value="/remove-produto?id=${produto.id}"/>"
+									onclick="return confirm('Deseja realmente excluir o Produto')" id="ok">Excluir</a></td>
 			
 							</tr>
 						</c:forEach>

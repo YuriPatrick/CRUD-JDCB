@@ -12,6 +12,24 @@ public class LoginDao {
 	private ResultSet rs;
 	private Connection conexao;
 	
+	
+	public void cadastrar(Login login) throws Exception {
+		try {
+			conexao = Conexao.getConnection();
+			String sql = "insert into login (usuario,senha,email)values (?,?,?)";
+			ps = conexao.prepareStatement(sql);
+			ps.setString(1, login.getUsuario());
+			ps.setString(2, login.getSenha());
+			ps.setString(3, login.getEmail());
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			System.out
+					.println("Erro ao cadastrar o usuario : " + e.getMessage() + "\n" + "Causa do erro :" + e.getCause());
+		} finally {
+			conexao.close();
+		}
+	}
 
 
 	public Login logar(Login login)throws Exception{

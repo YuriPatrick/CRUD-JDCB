@@ -22,5 +22,15 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/guava-25.0-jre.jar"/>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/okio-1.14.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/javax.servlet.jsp.jstl-1.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/f0fp631/eclipse-workspace/Projeto CRUD JDBC/SGPC_CRUD/WebContent/WEB-INF/lib/libs/javax.servlet.jsp.jstl-api-1.2.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

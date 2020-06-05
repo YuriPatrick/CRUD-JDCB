@@ -7,6 +7,27 @@
 <link rel="stylesheet" type="text/css" href="css/site.css">
 <script type="text/javascript" src="js/controle.js"></script>
 <title></title>
+<style type="text/css">
+.div-externa-update-produto {
+	position: absolute;
+	width: 490px;
+	height: 410px;
+	border-radius: 5px;
+	background-color: #E8E8E8;
+	padding: 20px;
+	border-radius: 20px;
+	margin: 70px -900px;
+}
+
+.div-interna-update-produto {
+	position: absolute;
+	width: 450px;
+	height: 280px;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 15px;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="home.jsp" />
@@ -46,21 +67,21 @@
 						<td>Quantidade</td>
 						<td><input type="number" class="input-update-produto"
 							name="qntProd" value="${produto.qnt}" required="required"
-							style="width: 147px"></td>
+							style="width: 315px"></td>
 					</tr>
 
 					<tr>
 						<td>Obs</td>
 						<td><input type="text" class="input-update-produto"
 							name="obsProd" value="${produto.obs}" required="required"
-							style="width: 147px"></td>
+							style="width: 315px"></td>
 					</tr>
 
 				</table>
 
-			</div>
-			<input type="submit" class="btn-update-produto" value="Gravar">
 			
+			<input type="submit" class="btn-update-produto" id="gravar" value="Gravar">
+			</div>
 		</div>
 	</form>
 </body>

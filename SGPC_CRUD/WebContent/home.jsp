@@ -1,35 +1,46 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="css/site.css">
-<title></title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/home.css">
+<!------ Include the above in your HEAD tag ---------->
+<title>Insert title here</title>
 </head>
 <body>
 
-<ul>
-  <li><a class="active" href="home.jsp">Home</a></li>
- 
-  <li class="dropdown">
-    <a href="#" class="dropbtn">Clientes</a>
-    <div class="dropdown-content">
-      <a href="./novo-cliente">Novo Cliente</a>
-      <a href="./all-clientes">Lista de Clientes</a>
-    </div>
-  </li>
-  <li class="dropdown">
-    <a href="#" class="dropbtn">Produtos</a>
-    <div class="dropdown-content">
-      <a href="./novo-produto">Novo Produto</a>
-      <a href="./get-produtos">Todos Produtos</a>
-      <a href="./alteracao-produtos">Alteração de Produtos</a>
-	  <li style="float:right"><a class="active" href="./logof">Sair</a></li>
-    </div>
-  </li>
-    
-   
-</ul>
+<div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link" href="./novo-cliente">Novo Cliente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="get-produtos" href="./all-clientes">Lista Cliente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./novo-produto">Novo Produto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="get-produtos" href="./get-produtos">Lista Produto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="alteracao-produtos" href="./alteracao-produtos">Alterar Produto</a>
+            </li>
+           <li class="nav-item">
+              <a class="nav-link" href="./logof">Sair</a>
+            </li>
+            
+          </ul> 
+        </nav> 
+      </div>
+ </div>
+      
+
 </body>
 </html>

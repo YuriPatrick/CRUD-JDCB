@@ -6,6 +6,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="css/site.css">
 <title></title>
+<style type="text/css">
+.div-externa-update-cliente {
+	position: absolute;
+	width: 490px;
+	height: 470px;
+	border-radius: 5px;
+	background-color: #E8E8E8;
+	padding: 20px;
+	border-radius: 20px;
+	margin: 45px -900px;
+}
+
+.div-interna-update-cliente {
+	position: absolute;
+	width: 450px;
+	height: 350px;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 15px;
+}
+</style>
 </head>
 <body>
 	<jsp:include page="home.jsp" />
@@ -18,38 +39,38 @@
 				<table>
 					<tr>
 						<td>Id</td>
-						<td><input type="text" class="input-update-cliente" name="idClie" readonly="readonly" value="${cliente.id}" style="width: 300px"></td>
+						<td><input type="text" class="input-update-cliente" id="idClie" name="idClie" readonly="readonly" value="${cliente.id}" style="width: 300px"></td>
 					</tr>
 					<tr>
 						<td>Nome</td>
-						<td><input type="text" class="input-update-cliente"	name="nomeClie" autocomplete="on" value="${cliente.nome}" required="required" style="width: 300px"></td>
+						<td><input type="text" class="input-update-cliente"	id="nomeClie" name="nomeClie" autocomplete="on" value="${cliente.nome}" required="required" style="width: 300px"></td>
 					</tr>
 					
 					<tr>
 						<td>Sobrenome</td>
-						<td><input type="text" class="input-update-cliente"	name="sobreClie" autocomplete="on" value="${cliente.sobrenome}" required="required" style="width: 300px"></td>
+						<td><input type="text" class="input-update-cliente"	id="sobreClie" name="sobreClie" autocomplete="on" value="${cliente.sobrenome}" required="required" style="width: 300px"></td>
 					</tr>
 
 					<tr>
 						<td>Cpf</td>
-						<td><input type="text" class="input-update-cliente" name="cpfClie" autocomplete="on" value="${cliente.cpf}" required="required" style="width: 134px"></td> 
+						<td><input type="text" class="input-update-cliente" id="cpfClie" name="cpfClie" autocomplete="on" value="${cliente.cpf}" required="required" style="width: 134px"></td> 
 					</tr>
 
 					<tr>
 						<td>Data Nascimento</td>
-						<td><input type="text" class="input-update-cliente" name="dataNascClie" autocomplete="on" value="${cliente.dataNascimento}" required="required" style="width: 130px"> 
+						<td><input type="text" class="input-update-cliente" id="dataNascClie" name="dataNascClie" autocomplete="on" value="${cliente.dataNascimento}" required="required" style="width: 130px"> 
 					</tr>
 
 					<tr>
 						<td>Localidade</td>
-						<td><input type="text" class="input-update-cliente" name="localClie" autocomplete="on" value="${cliente.localidade}" required="required" style="width: 300px"></td>
+						<td><input type="text" class="input-update-cliente" id="localClie" name="localClie" autocomplete="on" value="${cliente.localidade}" required="required" style="width: 300px"></td>
 					</tr>
 
 				</table>
 
-			</div>
-			<input type="submit" class="btn-updatecliente" value="Gravar">
-
+			
+			<input type="submit" class="btn-updatecliente" id="gravar" value="Gravar">
+		  </div>
 		</div>
 	</form>
 </body>

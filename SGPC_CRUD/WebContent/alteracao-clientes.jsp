@@ -5,8 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="css/file2.css">
+<link rel="stylesheet" type="text/css" href="css/file3.css">
 <title>Lista de Clientes</title>
+<style type="text/css">
+.div-lista {
+	position: absolute;
+	width: 80%;
+	height:300px;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 20px;
+	margin: 165px 15px;
+}
+
+</style>
 </head>
 <body>
 <jsp:include page="home.jsp"/> 
@@ -42,9 +55,9 @@
 				<td>${cliente.dataNascimento}</td>
 				<td>${cliente.localidade}</td>
 				
-				<td style="width: 100px"><a href="<c:url value="/id-update-cliente?id=${cliente.id}"/>">Alterar</a></td>
+				<td style="width: 90px"><a href="<c:url value="/id-update-cliente?id=${cliente.id}"/>">Alterar</a></td>
 
-				<td style="width: 100px"><a href="<c:url value="/remove-cliente?id=${cliente.id}"/>"
+				<td style="width: 90px"><a href="<c:url value="/remove-cliente?id=${cliente.id}"/>"
 									onclick="return confirm('Deseja realmente excluir o Cliente">Excluir</a></td>
 				
 			 

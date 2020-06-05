@@ -5,9 +5,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="css/file.css">
-
+<link rel="stylesheet" type="text/css" href="css/file3.css">
 <title></title>
+<style type="text/css">
+.div-lista {
+	position: absolute;
+	width: 80%;
+	height:300px;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	border-radius: 20px;
+	margin: 165px 15px;
+}
+
+</style>
 </head>
 <body>
 	<jsp:include page="home.jsp" />
@@ -48,16 +60,16 @@
 		</section>
 
 		<form action="exporte-produtos" name="dados" method="post">
-			<input type="submit" class="btn-novo-produto" value="Exportar">
+			<input type="submit" id="exportar" class="btn-novo-produto" value="Exportar">
 		</form>
 
 		<form action="importe-produtos" name="dados" method="post"
-			enctype="multipart/form-data" style="margin: -50px 120px">
+			enctype="multipart/form-data" style="margin: -35px 100px">
 
 			Select a file to upload: <br /> 
 			
 			<input type="file" name="file" size="60" /> <br /> 
-				<input type="submit" class="btn-novo-produto"
+				<input type="submit" id="importar" class="btn-novo-produto"
 				value="Upload">
 
 		</form>
