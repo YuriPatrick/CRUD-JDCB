@@ -1,8 +1,12 @@
 package model;
 
+import javax.persistence.Entity;
+
 /**
  * Classe model com os atributos do Cliente
  **/
+
+@Entity
 public class Cliente {
 	private int id;
 

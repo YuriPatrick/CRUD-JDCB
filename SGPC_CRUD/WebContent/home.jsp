@@ -21,13 +21,13 @@
               <a class="nav-link" href="./novo-cliente">Novo Cliente</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="get-produtos" href="./all-clientes">Lista Cliente</a>
+              <a class="nav-link" id="lista-produtos" href="./lista-clientes">Lista Cliente</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./novo-produto">Novo Produto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="get-produtos" href="./get-produtos">Lista Produto</a>
+              <a class="nav-link" id="lista-produtos" href="./lista-produtos">Lista Produto</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" id="alteracao-produtos" href="./alteracao-produtos">Alterar Produto</a>

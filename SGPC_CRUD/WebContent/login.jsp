@@ -14,6 +14,7 @@
 
 body {
     padding-top: 90px;
+     background: #f5f5f5;
 }
 .panel-login {
 	border-color: #ccc;

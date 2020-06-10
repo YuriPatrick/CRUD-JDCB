@@ -7,12 +7,6 @@
 <link rel="stylesheet" type="text/css" href="css/site.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () { 
-        var $seuCampoCpf = $("#cpfClie");
-        $seuCampoCpf.mask('000.000.000-00', {reverse: true});
-    });
-</script>
 <style type="text/css">
 .div-externa-novo-cliente {
 	position: absolute;
@@ -34,6 +28,14 @@
 	padding: 15px;
 }
 </style>
+
+<script type="text/javascript">
+    $(document).ready(function () { 
+        var $seuCampoCpf = $("#cpfClie");
+        $seuCampoCpf.mask('000.000.000-00', {reverse: true});
+    });
+</script>
+
 <title></title>
 </head>
 <body>

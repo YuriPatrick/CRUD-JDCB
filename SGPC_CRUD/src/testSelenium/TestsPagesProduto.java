@@ -1,4 +1,4 @@
-package tests;
+package testSelenium;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
@@ -35,7 +35,7 @@ class TestsPagesProduto {
 		driver.findElement(By.id("senha")).click();
 		driver.findElement(By.id("senha")).sendKeys("admin");
 
-		driver.findElement(By.id("entrar")).click();
+		driver.findElement(By.id("login-submit")).click();
 
 		driver.get("http://localhost:8080/SGP_CRUD/novo-produto");
 
@@ -55,7 +55,7 @@ class TestsPagesProduto {
 
 		driver.get("http://localhost:8080/SGP_CRUD/get-produtos");
 
-		driver.findElement(By.linkText("Todos Produtos")).click();
+		driver.findElement(By.linkText("Lista Produto")).click();
 		driver.findElement(By.id("exportar")).click();
 		driver.findElement(By.id("importar")).click();
 

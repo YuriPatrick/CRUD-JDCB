@@ -1,4 +1,4 @@
-package tests;
+package testSelenium;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -36,7 +36,7 @@ class TestsPagesCliente {
 		driver.findElement(By.id("senha")).click();
 		driver.findElement(By.id("senha")).sendKeys("admin");
 
-		driver.findElement(By.id("entrar")).click();
+		driver.findElement(By.id("login-submit")).click();
 
 		driver.get("http://localhost:8080/SGP_CRUD/novo-cliente");
 
@@ -58,7 +58,7 @@ class TestsPagesCliente {
 		driver.findElement(By.id("gravar")).click();
 
 		driver.get("http://localhost:8080/SGP_CRUD/all-clientes");
-		driver.findElement(By.linkText("Lista de Clientes")).click();
+		driver.findElement(By.linkText("Lista Cliente")).click();
 
 		driver.get("http://localhost:8080/SGP_CRUD/all-clientes");
 		driver.findElement(By.linkText("Alterar")).click();
@@ -73,7 +73,7 @@ class TestsPagesCliente {
 
 		driver.findElement(By.name("cpfClie")).click();
 		driver.findElement(By.name("cpfClie")).clear();
-		driver.findElement(By.name("cpfClie")).sendKeys("52352332");
+		driver.findElement(By.name("cpfClie")).sendKeys("332.325.325-32");
 
 		driver.findElement(By.name("dataNascClie")).click();
 		driver.findElement(By.name("dataNascClie")).clear();
@@ -81,7 +81,7 @@ class TestsPagesCliente {
 
 		driver.findElement(By.name("localClie")).click();
 		driver.findElement(By.name("localClie")).clear();
-		driver.findElement(By.name("localClie")).sendKeys("teste");
+		driver.findElement(By.name("localClie")).sendKeys("SC");
 
 		driver.findElement(By.id("gravar")).click();
 

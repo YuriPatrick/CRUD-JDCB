@@ -13,8 +13,10 @@ public class Conexao {
 
 			if (connection == null || connection.isClosed()) {
 				
-				String url = "jdbc:mysql://localhost:3306/test";
-				Class.forName("com.mysql.jdbc.Driver");
+				//com.mysql.cj.jdbc.Driver
+				//com.mysql.jdbc.Driver
+				String url = "jdbc:mysql://localhost:3306/test?useTimezone=true&serverTimezone=UTC";
+				Class.forName("com.mysql.cj.jdbc.Driver");
 				connection = DriverManager.getConnection(url,"root","root");
 			}
 

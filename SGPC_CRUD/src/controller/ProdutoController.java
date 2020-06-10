@@ -13,7 +13,7 @@ import service.ProdutoService;
 /**
  * Servlet implementation class ProdutoController
  */
-@WebServlet({ "/novo-produto", "/salva-produto", "/update-produto", "/remove-produto", "/get-produtos",
+@WebServlet({ "/novo-produto", "/salva-produto", "/update-produto", "/remove-produto", "/lista-produtos",
 		"/getId-produto", "/alteracao-produtos", "/exporte-produtos", "/importe-produtos" })
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
 		maxFileSize = 1024 * 1024 * 10, // 10MB
@@ -59,11 +59,10 @@ public class ProdutoController extends HttpServlet {
 		if (uri.equalsIgnoreCase(path + "/salva-produto")) {
 			produtoService.adiciona(request, response);
 			response.sendRedirect(path + "/novo-produto");
-
 		}
 
 		// Lista todos os produtos
-		if (uri.equalsIgnoreCase(path + "/get-produtos")) {
+		if (uri.equalsIgnoreCase(path + "/lista-produtos")) {
 			produtoService.getAll(request, response);
 			request.getRequestDispatcher("/lista-produtos.jsp").forward(request, response);
 		}
@@ -74,26 +73,24 @@ public class ProdutoController extends HttpServlet {
 		}
 
 		// Importe Excel
-	
 		if (uri.equalsIgnoreCase(path + "/importe-produtos")) {
-			response.sendRedirect(path + "/get-produtos");
 			produtoService.importeExcel(request, response);
+			response.sendRedirect(path + "/lista-produtos");
 		}
 
-		// Alteração de produto
+		// Lista produto na jsp alteração produto
 		if (uri.equalsIgnoreCase(path + "/alteracao-produtos")) {
 			produtoService.getAll(request, response);
 			request.getRequestDispatcher("/alteracao-produtos.jsp").forward(request, response);
 		}
 
-		// Busca o produto pelo ID.
+		// Busca o produto pelo ID
 		if (uri.equalsIgnoreCase(path + "/getId-produto")) {
 			produtoService.getProdutoById(request, response);
 			request.getRequestDispatcher("/update-produto.jsp").forward(request, response);
-
 		}
 
-		// Atualiza os produtos
+		// Atualiza o produto
 		if (uri.equalsIgnoreCase(path + "/update-produto")) {
 			produtoService.update(request, response);
 			response.sendRedirect(path + "/alteracao-produtos");

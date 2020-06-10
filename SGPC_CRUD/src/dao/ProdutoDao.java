@@ -68,31 +68,6 @@ public class ProdutoDao {
 		}
 	}
 
-	public List<Produto> getProduto(String item) throws Exception {
-		List<Produto> lista = new ArrayList<>();
-		try {
-			conexao = Conexao.getConnection();
-			String sql = "SELECT * FROM produto WHERE UPPER(descricao)LIKE UPPER(?)";
-			ps = conexao.prepareStatement(sql);
-			ps.setString(1, "%" + item + "%");
-			rs = ps.executeQuery();
-			while (rs.next()) {
-				Produto produto = new Produto();
-				produto.setId(rs.getInt("id"));
-				produto.setNome(rs.getString("descricao"));
-				produto.setQnt(rs.getInt("quantidade"));
-				produto.setObs(rs.getString("obs"));
-				lista.add(produto);
-			}
-		} catch (Exception e) {
-			System.out.println(
-					"Erro ao pesquisa lista produto, com descricao do produto: " + "\n" + e.getMessage() + "\n");
-		} finally {
-			conexao.close();
-		}
-		return lista;
-	}
-
 	public List<Produto> getAll() throws Exception {
 		List<Produto> lista = new ArrayList<>();
 		try {
@@ -142,7 +117,7 @@ public class ProdutoDao {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Erro ao pesquisa produto, com o codigo o produto: " + "\n" + e.getMessage());
+			System.out.println("Erro ao pesquisa produto " + "\n" + e.getMessage());
 		} finally {
 			conexao.close();
 		}

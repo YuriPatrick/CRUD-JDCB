@@ -26,7 +26,7 @@ public class LoginSession implements Filter {
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpSession session = request.getSession();
 
-		if (!UsuarioLogado(session) && !UsuarioAutenticado(request) && !UsuarioCadastra(request)) {
+		if (!usuarioLogado(session) && !usuarioAutenticado(request) && !usuarioCadastra(request)) {
 			HttpServletResponse response = (HttpServletResponse) resp;
 			response.sendRedirect(request.getContextPath() + "/login");
 		} else {
@@ -34,16 +34,16 @@ public class LoginSession implements Filter {
 		}
 	}
 
-	public boolean UsuarioLogado(HttpSession session) {
+	public boolean usuarioLogado(HttpSession session) {
 		return session != null && session.getAttribute("usuario_logado") != null;
 	}
 
-	public boolean UsuarioAutenticado(HttpServletRequest request) {
+	public boolean usuarioAutenticado(HttpServletRequest request) {
 		String uri = request.getRequestURI();
 		return uri.equals(request.getContextPath() + "/login") || uri.equals(request.getContextPath() + "/autentica");
 	}
 
-	public boolean UsuarioCadastra(HttpServletRequest request) {
+	public boolean usuarioCadastra(HttpServletRequest request) {
 		String uri = request.getRequestURI();
 		return uri.equals(request.getContextPath() + "/login")
 				|| uri.equals(request.getContextPath() + "/salva-usuario");

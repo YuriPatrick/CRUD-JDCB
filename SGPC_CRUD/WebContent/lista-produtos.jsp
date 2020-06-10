@@ -16,7 +16,7 @@
 	background-color: #f2f2f2;
 	padding: 20px;
 	border-radius: 20px;
-	margin: 165px 15px;
+	margin: 163px 15px;
 }
 
 </style>

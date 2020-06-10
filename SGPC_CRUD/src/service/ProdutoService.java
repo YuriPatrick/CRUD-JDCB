@@ -46,15 +46,15 @@ public class ProdutoService extends HttpServlet {
 	private static final String OBS_PROD = "obsProd";
 
 	private static final String SAVE_DIR = "uploadFiles";
+	
+	ProdutoDao dao = new ProdutoDao();
+	Produto produto = new Produto();
 
 	private static final long serialVersionUID = 1L;
 
 	public void adiciona(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			ProdutoDao dao = new ProdutoDao();
-			Produto produto = new Produto();
-
 			String nome = request.getParameter(NOM_PROD);
 			String descricao = request.getParameter(DESC_PROD);
 			int qnt = Integer.parseInt(request.getParameter(QNT_PROD));
@@ -74,7 +74,6 @@ public class ProdutoService extends HttpServlet {
 
 	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			Produto produto = new Produto();
 			String id = request.getParameter(ID_PROD);
 			String nome = request.getParameter(NOM_PROD);
 			String descricao = request.getParameter(DESC_PROD);
@@ -115,24 +114,14 @@ public class ProdutoService extends HttpServlet {
 		}
 	}
 
-	public void getProduto(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		try {
-			String descricao = request.getParameter("descricao");
-			List<Produto> produtos = new ProdutoDao().getProduto(descricao);
-			request.setAttribute("produtos", produtos);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
 
 	public void getProdutoById(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
 			String id = request.getParameter("id");
-			Produto produto = new ProdutoDao().getId(Integer.parseInt(id));
+			produto = new ProdutoDao().getId(Integer.parseInt(id));
 			request.setAttribute("produto", produto);
-			request.setAttribute("produtoId", Integer.parseInt(id));
+			//request.setAttribute("produtoId", Integer.parseInt(id));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

@@ -116,7 +116,7 @@ public class ClienteDao {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Erro ao pesquisa cliente, com o codigo o cliente: " + "\n" + e.getMessage());
+			System.out.println("Erro ao pesquisa cliente" + "\n" + e.getMessage());
 		} finally {
 			conexao.close();
 		}

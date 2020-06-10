@@ -15,16 +15,14 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import dao.ClienteDao;
-import dao.ProdutoDao;
 import model.Cliente;
-import model.Produto;
 
 /**
  * Servlet implementation class ClienteService
  */
 @WebServlet("/ClienteService")
 public class ClienteService extends HttpServlet {
-	
+
 	private static final String ID_CLIE = "idClie";
 
 	private static final String NOM_CLIE = "nomeClie";
@@ -36,14 +34,15 @@ public class ClienteService extends HttpServlet {
 	private static final String DATANASC_CLIE = "dataNascClie";
 
 	private static final String LOCAL_CLIE = "localClie";
-	
+
+	ClienteDao dao = new ClienteDao();
+	Cliente cliente = new Cliente();
+
 	private static final long serialVersionUID = 1L;
-       
+
 	public void adiciona(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-			ClienteDao dao = new ClienteDao();
-			Cliente cliente = new Cliente();
 
 			String nome = request.getParameter(NOM_CLIE);
 			String sobrenome = request.getParameter(SOBRE_CLIE);
@@ -65,8 +64,7 @@ public class ClienteService extends HttpServlet {
 
 	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			Cliente cliente = new Cliente();
-			
+
 			String idClie = request.getParameter(ID_CLIE);
 			String nome = request.getParameter(NOM_CLIE);
 			String sobrenome = request.getParameter(SOBRE_CLIE);
@@ -88,7 +86,7 @@ public class ClienteService extends HttpServlet {
 		}
 	}
 
-	public void remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void remove(HttpServletRequest request) throws ServletException, IOException {
 		try {
 			String id = request.getParameter("id");
 			Cliente cliente = new Cliente();
@@ -109,14 +107,13 @@ public class ClienteService extends HttpServlet {
 		}
 	}
 
-	
 	public void getClienteById(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
 			String id = request.getParameter("id");
-			Cliente cliente = new ClienteDao().getId(Integer.parseInt(id));
+			cliente = new ClienteDao().getId(Integer.parseInt(id));
 			request.setAttribute("cliente", cliente);
-			//srequest.setAttribute("produtoId", Integer.parseInt(id));
+			// srequest.setAttribute("produtoId", Integer.parseInt(id));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
@@ -124,11 +121,11 @@ public class ClienteService extends HttpServlet {
 
 	public void exportExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		response.setContentType("application/vnd.ms-excel");
-		response.setHeader("Content-Disposition", "attachment;filename=produtoList.xlsx");
+		response.setHeader("Content-Disposition", "attachment;filename=clienteList.xlsx");
 
 		XSSFWorkbook wb = new XSSFWorkbook();
 		XSSFSheet sheet = wb.createSheet("list");
-		List<Produto> produtos = new ProdutoDao().getAll();
+		List<Cliente> clientes = new ClienteDao().getAll();
 
 		sheet.setDefaultColumnWidth(20);
 		sheet.setDefaultRowHeight((short) 400);
@@ -139,37 +136,40 @@ public class ClienteService extends HttpServlet {
 		int cellnum = 0;
 
 		Cell cell = row.createCell(cellnum++);
-		cell.setCellValue("ID Produto");
+		cell.setCellValue("Nome Cliente");
 
 		cell = row.createCell(cellnum++);
-		cell.setCellValue("Nome Produto");
+		cell.setCellValue("SobreNome Cliente");
 
 		cell = row.createCell(cellnum++);
-		cell.setCellValue("Descrição Produto");
+		cell.setCellValue("CPF Cliente");
 
 		cell = row.createCell(cellnum++);
-		cell.setCellValue("Quantidade Produto");
+		cell.setCellValue("Data de Nascimento Cliente");
 
 		cell = row.createCell(cellnum++);
-		cell.setCellValue("Observação Produto");
+		cell.setCellValue("Localidade Cliente");
 
-		for (Produto p : produtos) {
+		for (Cliente c : clientes) {
 			cellnum = 0;
 			row = sheet.createRow(rowNo++);
-			cell = row.createCell(cellnum++);
-			cell.setCellValue(p.getId());
+			// cell = row.createCell(cellnum++);
+			// cell.setCellValue(p.getId());
 
 			cell = row.createCell(cellnum++);
-			cell.setCellValue(p.getNome());
+			cell.setCellValue(c.getNome());
 
 			cell = row.createCell(cellnum++);
-			cell.setCellValue(p.getDescricao());
+			cell.setCellValue(c.getSobrenome());
 
 			cell = row.createCell(cellnum++);
-			cell.setCellValue(p.getQnt());
+			cell.setCellValue(c.getCpf());
 
 			cell = row.createCell(cellnum++);
-			cell.setCellValue(p.getObs());
+			cell.setCellValue(c.getDataNascimento());
+
+			cell = row.createCell(cellnum++);
+			cell.setCellValue(c.getLocalidade());
 		}
 
 		wb.write(response.getOutputStream());
