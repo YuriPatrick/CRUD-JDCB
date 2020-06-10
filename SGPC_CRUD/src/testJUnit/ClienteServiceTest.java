@@ -3,7 +3,6 @@ package testJUnit;
 import static org.junit.Assert.assertNotNull;
 
 import java.sql.Connection;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
