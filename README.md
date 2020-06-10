@@ -4,7 +4,7 @@ Projeto CRUD com as funções de cadastrar, consultar, atualizar, excluir, e com
 
 Para o desenvolvimento do sistema foram utilizadas as tecnologias abaixo:
 
-## Tecnologias para o desenvolvimento do CRUD:
+## Tecnologias usadas para o desenvolvimento do CRUD:
 
 * JDBC - API para a conexão com o driver do maria DB e realizar o envio de instruções SQL para o banco de dados relacional;
 * Maven – Ferramenta para o gerenciamento das dependências e automação de builds.
@@ -13,7 +13,7 @@ Para o desenvolvimento do sistema foram utilizadas as tecnologias abaixo:
 * JavaScript – Implementação de funcionalidades mais complexas nas páginas;
 * Bootstrap – Framework para o desenvolvimento da interface;
 
-## Tecnologias para o desenvolvimento de Testes:
+## Tecnologias usadas para o desenvolvimento de Teste:
 
 * Selenium – Ferramenta usada para testar aplicações web pelo browser de forma automatizada;
 * JUnit – Framework usado para a criação de testes unitários;
