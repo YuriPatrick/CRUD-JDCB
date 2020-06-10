@@ -4,10 +4,16 @@ Projeto CRUD com as funções de cadastrar, consultar, atualizar, excluir, e com
 
 Para o desenvolvimento do sistema foram utilizadas as tecnologias abaixo:
 
-## Tecnologias:
+## Tecnologias para o desenvolvimento do CRUD:
 
-* JDBC - API que possibilita se conectar através de um driver específico do banco de dados, fazem o envio de instruções SQL para qualquer banco de dados relacional;
-* Apache POI - Biblioteca usada para o importe e exporte de documentos Excel; 
+* JDBC - API para a conexão com o driver do maria DB e realizar o envio de instruções SQL para o banco de dados relacional;
+* Maven – Ferramenta para o gerenciamento das dependências e automação de builds.
+* Apache POI - Framework utilizado para exportar e importar dados Excel; 
 * JSP – Para a criação de páginas web dinamicamente;
 * JavaScript – Implementação de funcionalidades mais complexas nas páginas;
 * Bootstrap – Framework para o desenvolvimento da interface;
+
+## Tecnologias para o desenvolvimento de Testes:
+
+* Selenium – Ferramenta usada para testar aplicações web pelo browser de forma automatizada;
+* JUnit – Framework usado para a criação de testes unitários;
