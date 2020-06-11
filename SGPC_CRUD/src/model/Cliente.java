@@ -3,9 +3,8 @@ package model;
 import javax.persistence.Entity;
 
 /**
- * Classe model com os atributos do Cliente
+ * Classe model Cliente com os atributos e metodos
  **/
-
 @Entity
 public class Cliente {
 	private int id;

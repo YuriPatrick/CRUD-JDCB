@@ -8,32 +8,43 @@ import java.util.List;
 
 import model.Produto;
 
-public class ProdutoDao {
+/**
+ * Classe responsável na manipulação dos dados no SGBD {@link ManipulaDados}
+ **/
+public class ProdutoDao implements ManipulaDados<Produto> {
 
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private Connection conexao;
 
+	/**
+	 * Método para salvar os dados no SGBD 
+	 */
+	@Override
 	public void adiciona(Produto produto) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-			String sql = "INSERT INTO produto(nome," + " descricao," + " quantidade," + "obs)"
-					+ "VALUES(?, ?, ?, ?)";
+			String sql = "INSERT INTO produto(nome," + " descricao," + " quantidade," + "obs)" + "VALUES(?, ?, ?, ?)";
 			ps = conexao.prepareStatement(sql);
 			ps.setString(1, produto.getNome());
 			ps.setString(2, produto.getDescricao());
 			ps.setInt(3, produto.getQnt());
 			ps.setString(4, produto.getObs());
 			ps.executeUpdate();
-				
+
 		} catch (Exception e) {
 			System.out
 					.println("Erro ao salvar o produto : " + e.getMessage() + "\n" + "Causa do erro :" + e.getCause());
 		} finally {
 			conexao.close();
 		}
+
 	}
 
+	/**
+	 * Método para atualizar os dados no SGBD 
+	 */
+	@Override
 	public void update(Produto produto) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
@@ -51,8 +62,13 @@ public class ProdutoDao {
 		} finally {
 			conexao.close();
 		}
+
 	}
 
+	/**
+	 * Método para remover os dados no SGBD 
+	 */
+	@Override
 	public void remove(Produto produto) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
@@ -66,8 +82,13 @@ public class ProdutoDao {
 		} finally {
 			conexao.close();
 		}
+
 	}
 
+	/**
+	 * Método para listar os dados salvo no SGBD 
+	 */
+	@Override
 	public List<Produto> getAll() throws Exception {
 		List<Produto> lista = new ArrayList<>();
 		try {
@@ -93,6 +114,10 @@ public class ProdutoDao {
 		return lista;
 	}
 
+	/**
+	 * Método para buscar os dados pelo ID salvo no SGBD 
+	 */
+	@Override
 	public Produto getId(int id) throws Exception {
 		Produto produto = null;
 		try {
@@ -108,12 +133,6 @@ public class ProdutoDao {
 				produto.setDescricao(rs.getString("descricao"));
 				produto.setQnt(rs.getInt("quantidade"));
 				produto.setObs(rs.getString("obs"));
-
-				// ps.setInt(1, produto.getId());
-				// ps.setString(2, produto.getNome());
-				// ps.setString(3, produto.getDescricao());
-				// ps.setInt(4, produto.getQnt());
-				// ps.setString(5, produto.getObs());
 			}
 
 		} catch (Exception e) {

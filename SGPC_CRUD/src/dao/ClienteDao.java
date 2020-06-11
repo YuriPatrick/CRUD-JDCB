@@ -8,11 +8,18 @@ import java.util.List;
 
 import model.Cliente;
 
-public class ClienteDao {
+/**
+ * Classe responsável na manipulação dos dados no SGBD {@link ManipulaDados}
+ **/
+public class ClienteDao implements ManipulaDados<Cliente> {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private Connection conexao;
 
+	/**
+	 * Método para salvar os dados no SGBD 
+	 */
+	@Override
 	public void adiciona(Cliente cliente) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
@@ -31,14 +38,19 @@ public class ClienteDao {
 		} finally {
 			conexao.close();
 		}
+
 	}
 
+	/**
+	 * Método para atualizar os dados no SGBD 
+	 */
+	@Override
 	public void update(Cliente cliente) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
-						
+
 			String sql = "update cliente set nome=?, sobrenome=?, cpf=?, data_nascimento=?, localidade=? where id=?";
-			
+
 			ps = conexao.prepareStatement(sql);
 			ps.setString(1, cliente.getNome());
 			ps.setString(2, cliente.getSobrenome());
@@ -52,8 +64,13 @@ public class ClienteDao {
 		} finally {
 			conexao.close();
 		}
+
 	}
 
+	/**
+	 * Método para remover os dados no SGBD 
+	 */
+	@Override
 	public void remove(Cliente cliente) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
@@ -67,9 +84,13 @@ public class ClienteDao {
 		} finally {
 			conexao.close();
 		}
+
 	}
 
-	
+	/**
+	 * Método para listar os dados salvo no SGBD 
+	 */
+	@Override
 	public List<Cliente> getAll() throws Exception {
 		List<Cliente> lista = new ArrayList<>();
 		try {
@@ -94,8 +115,13 @@ public class ClienteDao {
 			conexao.close();
 		}
 		return lista;
+
 	}
 
+	/**
+	 * Método para buscar os dados pelo ID salvo no SGBD 
+	 */
+	@Override
 	public Cliente getId(int id) throws Exception {
 		Cliente cliente = null;
 		try {
@@ -106,7 +132,7 @@ public class ClienteDao {
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				cliente = new Cliente();
-				
+
 				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setSobrenome(rs.getString("sobrenome"));

@@ -1,8 +1,7 @@
 package model;
 
-
 /**
- * Classe model com os atributos do Produto
+ * Classe model Produto com os atributos e metodos
  **/
 public class Produto {
 
@@ -41,7 +40,7 @@ public class Produto {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-		
+
 	}
 
 	public String getDescricao() {

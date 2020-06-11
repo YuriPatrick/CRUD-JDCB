@@ -15,9 +15,10 @@ import model.Produto;
 
 class ProdutoServiceTest {
 
-	ProdutoDao pd = new ProdutoDao();
+	ProdutoDao produtoDao = new ProdutoDao();
+	
+	Logger logger = Logger.getLogger("testJUnit.ClienteServiceTest");
 
-	Logger logger = Logger.getLogger("testJUnit.ProdutoServiceTest");
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -41,9 +42,9 @@ class ProdutoServiceTest {
 		Assert.assertEquals(10, p.getQnt());
 		Assert.assertEquals("motorVW", p.getObs());
 
-		pd.adiciona(p);
-
-		logger.info("Produto salvo");
+		produtoDao.adiciona(p);
+		
+		logger.info("Salva Produto");
 
 	}
 
@@ -57,14 +58,14 @@ class ProdutoServiceTest {
 
 	@Test
 	public void testConsulta() throws Exception {
-		logger.info("Consulta: " + pd.getAll());
+		logger.info("Consulta: " + produtoDao.getAll());
 
 	}
 
 	@Test
 	public void testBuscaPorID() throws Exception {
 		String id = "55";
-		logger.info("Busca por ID: " + pd.getId(Integer.parseInt(id)));
+		logger.info("Busca por ID: " + produtoDao.getId(Integer.parseInt(id)));
 		
 
 	}

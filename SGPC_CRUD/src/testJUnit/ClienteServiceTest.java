@@ -15,8 +15,8 @@ import model.Cliente;
 
 public class ClienteServiceTest {
 
-	ClienteDao cd = new ClienteDao();
-
+	ClienteDao clienteDao = new ClienteDao();
+	
 	Logger logger = Logger.getLogger("testJUnit.ClienteServiceTest");
 
 	@Before
@@ -41,7 +41,7 @@ public class ClienteServiceTest {
 		Assert.assertEquals("18-06-1991", c1.getDataNascimento());
 		Assert.assertEquals("SC", c1.getLocalidade());
 
-		cd.adiciona(c1);
+		clienteDao.adiciona(c1);
 
 		logger.info("cliente salvo");
 
@@ -57,14 +57,14 @@ public class ClienteServiceTest {
 
 	@Test
 	public void testConsulta() throws Exception {
-		logger.info("Consulta: " + cd.getAll());
+		logger.info("Consulta: " + clienteDao.getAll());
 
 	}
 
 	@Test
 	public void testBuscaPorID() throws Exception {
 		String id = "31";
-		logger.info("Busca por ID: " + cd.getId(Integer.parseInt(id)));
+		logger.info("Busca por ID: " + clienteDao.getId(Integer.parseInt(id)));
 	}
 
 }

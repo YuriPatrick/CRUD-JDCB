@@ -18,7 +18,8 @@ import dao.ClienteDao;
 import model.Cliente;
 
 /**
- * Servlet implementation class ClienteService
+ * Servlet implementado o cliente com requisições e respostas, com as operações de
+ * cadastrar,consultar,alterar,exportar excel e deletar.. {@link HttpServlet}
  */
 @WebServlet("/ClienteService")
 public class ClienteService extends HttpServlet {
@@ -40,7 +41,12 @@ public class ClienteService extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	public void adiciona(HttpServletRequest request, HttpServletResponse response)
+	/**
+	 * @see HttpServlet#adiciona(HttpServletRequest request, HttpServletResponse response) 
+	 * Método adiciona com a requisição para salvar os dados no SGBD.
+	 * @param HttpServletRequest request
+	 */
+	public void adiciona(HttpServletRequest request)
 			throws ServletException, IOException {
 		try {
 
@@ -62,7 +68,12 @@ public class ClienteService extends HttpServlet {
 		}
 	}
 
-	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#adiciona(HttpServletRequest request, HttpServletResponse response) 
+	 * Método atualiza os dados no SGBD com a requisição do servlet.
+	 * @param HttpServletRequest request
+	 */
+	public void update(HttpServletRequest request) throws ServletException, IOException {
 		try {
 
 			String idClie = request.getParameter(ID_CLIE);
@@ -86,6 +97,11 @@ public class ClienteService extends HttpServlet {
 		}
 	}
 
+	/**
+	 * @see HttpServlet#remove(HttpServletRequest request, HttpServletResponse response) 
+	 * Método remove os dados no SGBD com a requisição do servlet.
+	 * @param HttpServletRequest request
+	 */
 	public void remove(HttpServletRequest request) throws ServletException, IOException {
 		try {
 			String id = request.getParameter("id");
@@ -98,7 +114,12 @@ public class ClienteService extends HttpServlet {
 
 	}
 
-	public void getAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#getAll(HttpServletRequest request, HttpServletResponse response) 
+	 * Método lista os dados cadastrado no SGBD com a requisição do servlet.
+	 * @param HttpServletRequest request
+	 */
+	public void getAll(HttpServletRequest request) throws ServletException, IOException {
 		try {
 			List<Cliente> clientes = new ClienteDao().getAll();
 			request.setAttribute("clientes", clientes);
@@ -107,7 +128,12 @@ public class ClienteService extends HttpServlet {
 		}
 	}
 
-	public void getClienteById(HttpServletRequest request, HttpServletResponse response)
+	/**
+	 * @see HttpServlet#getClienteById(HttpServletRequest request, HttpServletResponse response) 
+	 * Método busca os dados por ID cadastrado no SGBD com a requisição do servlet.
+	 * @param HttpServletRequest request
+	 */
+	public void getClienteById(HttpServletRequest request)
 			throws ServletException, IOException {
 		try {
 			String id = request.getParameter("id");
@@ -119,7 +145,12 @@ public class ClienteService extends HttpServlet {
 		}
 	}
 
-	public void exportExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	/**
+	 * @see HttpServlet#exportExcel(HttpServletResponse response) 
+	 * Método exporte Excel com a resposta para exporta os dados salvo do SGBD.
+	 * @param HttpServletResponse response
+	 */
+	public void exportExcel(HttpServletResponse response) throws Exception {
 		response.setContentType("application/vnd.ms-excel");
 		response.setHeader("Content-Disposition", "attachment;filename=clienteList.xlsx");
 

@@ -6,14 +6,19 @@ import java.sql.ResultSet;
 
 import model.Login;
 
+/**
+ * Classe responsável na manipulação dos dados no SGBD {@link ManipulaDados}
+ **/
 public class LoginDao {
 
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private Connection conexao;
 	
-	
-	public void cadastrar(Login login) throws Exception {
+	/**
+	 * Método para salvar os dados no SGBD 
+	 */
+	public void adiciona(Login login) throws Exception {
 		try {
 			conexao = Conexao.getConnection();
 			String sql = "insert into login (usuario,senha,email)values (?,?,?)";
@@ -31,10 +36,12 @@ public class LoginDao {
 		}
 	}
 
-
+	/**
+	 * Método para buscar o usuário cadastrado no SGBD 
+	 */
 	public Login logar(Login login)throws Exception{
 		String sql ="select * from login where usuario =? and senha =?";
-		Login login2 =null;
+		//Login login2 =null;
 		try {
 			conexao = Conexao.getConnection();
 			ps = conexao.prepareStatement(sql);
@@ -42,14 +49,14 @@ public class LoginDao {
 			ps.setString(2, login.getSenha());
 			rs = ps.executeQuery();
 			while (rs.next()){
-				login2 = new Login();
-				login2.setUsuario(rs.getString("usuario"));
-				login2.setSenha(rs.getString("senha"));
+				login = new Login();
+				login.setUsuario(rs.getString("usuario"));
+				login.setSenha(rs.getString("senha"));
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return login2;
+		return login;
 	}
 
 	

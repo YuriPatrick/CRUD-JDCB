@@ -30,7 +30,9 @@ import dao.ProdutoDao;
 import model.Produto;
 
 /**
- * Servlet implementation class ProdutoService
+ * Servlet implementado o produto com requisições e respostas, com as operações de
+ * cadastrar,consultar,alterar,importar excel,exportar excel e deletar..
+ * {@link HttpServlet}
  */
 @WebServlet("/ProdutoService")
 public class ProdutoService extends HttpServlet {
@@ -46,13 +48,18 @@ public class ProdutoService extends HttpServlet {
 	private static final String OBS_PROD = "obsProd";
 
 	private static final String SAVE_DIR = "uploadFiles";
-	
+
 	ProdutoDao dao = new ProdutoDao();
 	Produto produto = new Produto();
 
 	private static final long serialVersionUID = 1L;
 
-	public void adiciona(HttpServletRequest request, HttpServletResponse response)
+	/**
+	 * @see HttpServlet#adiciona(HttpServletRequest request, HttpServletResponse
+	 *      response) Método adiciona com a requisição para salvar os dados no SGBD.
+	 * @param HttpServletRequest request
+	 */
+	public void adiciona(HttpServletRequest request)
 			throws ServletException, IOException {
 		try {
 			String nome = request.getParameter(NOM_PROD);
@@ -72,7 +79,12 @@ public class ProdutoService extends HttpServlet {
 		}
 	}
 
-	public void update(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#update(HttpServletRequest request, HttpServletResponse response) 
+	 * Método atualiza os dados no SGBD com a requisição do servlet.
+	 * @param HttpServletRequest request
+	 */
+	public void update(HttpServletRequest request) throws ServletException, IOException {
 		try {
 			String id = request.getParameter(ID_PROD);
 			String nome = request.getParameter(NOM_PROD);
@@ -93,7 +105,12 @@ public class ProdutoService extends HttpServlet {
 		}
 	}
 
-	public void remove(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#remove(HttpServletRequest request, HttpServletResponse response) 
+	 * Método remove os dados no SGBD com a requisição do servlet.
+	 * @param HttpServletRequest request
+	 */
+	public void remove(HttpServletRequest request) throws ServletException, IOException {
 		try {
 			String id = request.getParameter("id");
 			Produto produto = new Produto();
@@ -105,7 +122,12 @@ public class ProdutoService extends HttpServlet {
 
 	}
 
-	public void getAll(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#getAll(HttpServletRequest request, HttpServletResponse response) 
+	 * Método lista os dados cadastrado no SGBD com a requisição do servlet.
+	 * @param HttpServletRequest request
+	 */
+	public void getAll(HttpServletRequest request) throws ServletException, IOException {
 		try {
 			List<Produto> produtos = new ProdutoDao().getAll();
 			request.setAttribute("produtos", produtos);
@@ -114,20 +136,29 @@ public class ProdutoService extends HttpServlet {
 		}
 	}
 
-
-	public void getProdutoById(HttpServletRequest request, HttpServletResponse response)
+	/**
+	 * @see HttpServlet#getProdutoById(HttpServletRequest request, HttpServletResponse response) 
+	 * Método busca os dados por ID cadastrado no SGBD com a requisição do servlet.
+	 * @param HttpServletRequest request
+	 */
+	public void getProdutoById(HttpServletRequest request)
 			throws ServletException, IOException {
 		try {
 			String id = request.getParameter("id");
 			produto = new ProdutoDao().getId(Integer.parseInt(id));
 			request.setAttribute("produto", produto);
-			//request.setAttribute("produtoId", Integer.parseInt(id));
+			// request.setAttribute("produtoId", Integer.parseInt(id));
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	public void exportExcel(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	/**
+	 * @see HttpServlet#exportExcel(HttpServletResponse response) 
+	 * Método exporte Excel com a resposta para exporta os dados salvo do SGBD.
+	 * @param HttpServletResponse response
+	 */
+	public void exportExcel(HttpServletResponse response) throws Exception {
 		response.setContentType("application/vnd.ms-excel");
 		response.setHeader("Content-Disposition", "attachment;filename=produtoList.xlsx");
 
@@ -160,8 +191,8 @@ public class ProdutoService extends HttpServlet {
 		for (Produto p : produtos) {
 			cellnum = 0;
 			row = sheet.createRow(rowNo++);
-			//cell = row.createCell(cellnum++);
-			//cell.setCellValue(p.getId());
+			// cell = row.createCell(cellnum++);
+			// cell.setCellValue(p.getId());
 
 			cell = row.createCell(cellnum++);
 			cell.setCellValue(p.getNome());
@@ -181,6 +212,12 @@ public class ProdutoService extends HttpServlet {
 
 	}
 
+
+	/**
+	 * @see HttpServlet#importeExcel(HttpServletRequest request, HttpServletResponse
+	 *      response) Método importe Excel com resposta e requisição para importar os dados no SGBD.
+	 * @param HttpServletRequest request
+	 */
 	public void importeExcel(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
 
@@ -224,6 +261,10 @@ public class ProdutoService extends HttpServlet {
 
 	}
 
+	/**
+	 * Método uploadExcel para importar os dados no SGBD e para a listagem da importação do excel.
+	 * @param String upload
+	 */
 	public void uploadExcel(String upload, HttpServletResponse response) throws IOException, ServletException {
 
 		ProdutoDao dao = new ProdutoDao();
@@ -233,44 +274,47 @@ public class ProdutoService extends HttpServlet {
 		// Recuparando o arquivo
 		FileInputStream excelFile = new FileInputStream(new File(upload));
 		try {
-		Workbook workbook = new XSSFWorkbook(excelFile);
+			Workbook workbook = new XSSFWorkbook(excelFile);
 
-		// Setando a aba
-		Sheet sheet = workbook.getSheetAt(0);
+			// Setando a aba
+			Sheet sheet = workbook.getSheetAt(0);
 
-		// Setando as linhas
-		List<Row> rows = (List<Row>) toList(sheet.iterator());
+			// Setando as linhas
+			List<Row> rows = (List<Row>) toList(sheet.iterator());
 
-		// Remover o cabeçalho
-		rows.remove(0);
+			// Remover o cabeçalho
+			rows.remove(0);
 
-		rows.forEach(row -> {
+			rows.forEach(row -> {
 
-			// Setando as celulas
-			List<Cell> cells = (List<Cell>) toList(row.cellIterator());
+				// Setando as celulas
+				List<Cell> cells = (List<Cell>) toList(row.cellIterator());
 
-			Produto p = new Produto();
+				Produto p = new Produto();
 
-			p.setNome(cells.get(0).getStringCellValue());
-			p.setDescricao(cells.get(1).getStringCellValue());
-			p.setQnt((int) cells.get(2).getNumericCellValue());
-			p.setObs(cells.get(3).getStringCellValue());
+				p.setNome(cells.get(0).getStringCellValue());
+				p.setDescricao(cells.get(1).getStringCellValue());
+				p.setQnt((int) cells.get(2).getNumericCellValue());
+				p.setObs(cells.get(3).getStringCellValue());
 
-			produtos.add(p);
+				produtos.add(p);
 
-			try {
-				dao.adiciona(p);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+				try {
+					dao.adiciona(p);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 
-		});
-		
-		}catch (EmptyFileException e) {
+			});
+
+		} catch (EmptyFileException e) {
 			System.out.print("Nenhum arquivo escolhido para upload");
 		}
 	}
 
+	/**
+	 * Método toList para retornar uma lista de Iterator na leitura das rows e cells do Excel.
+	 */
 	public List<?> toList(Iterator<?> iterator) {
 		return IteratorUtils.toList(iterator);
 	}

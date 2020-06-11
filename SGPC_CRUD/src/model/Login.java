@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Classe model Login com os atributos e metodos
+ **/
 public class Login {
 
 	private long id;
@@ -17,8 +20,6 @@ public class Login {
 		this.usuario = usuario;
 		this.senha = senha;
 	}
-	
-	
 
 	public String getEmail() {
 		return email;

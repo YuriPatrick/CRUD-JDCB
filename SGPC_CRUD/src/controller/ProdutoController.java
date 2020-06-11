@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import service.ProdutoService;
 
 /**
- * Servlet implementation class ProdutoController
+ * Servlet implementado as requisições e respostas do redirecionamento das
+ * paginas jsp e as operações de cadastrar,consultar,alterar,exportar
+ * excel,importar excel e deletar.
  */
 @WebServlet({ "/novo-produto", "/salva-produto", "/update-produto", "/remove-produto", "/lista-produtos",
 		"/getId-produto", "/alteracao-produtos", "/exporte-produtos", "/importe-produtos" })
@@ -24,6 +26,10 @@ public class ProdutoController extends HttpServlet {
 
 	private ProdutoService produtoService = new ProdutoService();
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
@@ -34,6 +40,10 @@ public class ProdutoController extends HttpServlet {
 		}
 	}
 
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
@@ -45,6 +55,14 @@ public class ProdutoController extends HttpServlet {
 		}
 	}
 
+	/**
+	 * @see HttpServlet#executa(HttpServletRequest request, HttpServletResponse
+	 *      response) Método executa com a requisição e resposta para os
+	 *      redirecionamento e as operações
+	 *      cadastrar,alterar,consultar,deletar,exportar excel e importar excel.
+	 * @param HttpServletRequest  request
+	 * @param HttpServletResponse response
+	 */
 	private void executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
 		String path = request.getContextPath();
@@ -57,19 +75,19 @@ public class ProdutoController extends HttpServlet {
 
 		// Salva o produto
 		if (uri.equalsIgnoreCase(path + "/salva-produto")) {
-			produtoService.adiciona(request, response);
+			produtoService.adiciona(request);
 			response.sendRedirect(path + "/novo-produto");
 		}
 
 		// Lista todos os produtos
 		if (uri.equalsIgnoreCase(path + "/lista-produtos")) {
-			produtoService.getAll(request, response);
+			produtoService.getAll(request);
 			request.getRequestDispatcher("/lista-produtos.jsp").forward(request, response);
 		}
 
 		// Exporta Excel
 		if (uri.equalsIgnoreCase(path + "/exporte-produtos")) {
-			produtoService.exportExcel(request, response);
+			produtoService.exportExcel(response);
 		}
 
 		// Importe Excel
@@ -80,25 +98,25 @@ public class ProdutoController extends HttpServlet {
 
 		// Lista produto na jsp alteração produto
 		if (uri.equalsIgnoreCase(path + "/alteracao-produtos")) {
-			produtoService.getAll(request, response);
+			produtoService.getAll(request);
 			request.getRequestDispatcher("/alteracao-produtos.jsp").forward(request, response);
 		}
 
 		// Busca o produto pelo ID
 		if (uri.equalsIgnoreCase(path + "/getId-produto")) {
-			produtoService.getProdutoById(request, response);
+			produtoService.getProdutoById(request);
 			request.getRequestDispatcher("/update-produto.jsp").forward(request, response);
 		}
 
 		// Atualiza o produto
 		if (uri.equalsIgnoreCase(path + "/update-produto")) {
-			produtoService.update(request, response);
+			produtoService.update(request);
 			response.sendRedirect(path + "/alteracao-produtos");
 		}
 
 		// Remove os produtos
 		if (uri.equalsIgnoreCase(path + "/remove-produto")) {
-			produtoService.remove(request, response);
+			produtoService.remove(request);
 			response.sendRedirect(path + "/alteracao-produtos");
 		}
 
