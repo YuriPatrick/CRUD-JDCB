@@ -1,4 +1,4 @@
-package testJUnit;
+package com.testJUnit;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

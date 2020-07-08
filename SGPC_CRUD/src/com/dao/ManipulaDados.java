@@ -1,10 +1,10 @@
-package dao;
+package com.dao;
 
 import java.util.List;
 
 /**
- * Classe responsável na implementação da interface dos métodos
- * add,update,remove,getAll,getId
+ * CLASSE RESPONSÁVEL NA IMPLEMENTAÇÃO DA INTERFACE DOS MÉTODOS
+ * ADD,UPDATE,REMOVE,GETALL,GETID
  **/
 public interface ManipulaDados<T> {
 

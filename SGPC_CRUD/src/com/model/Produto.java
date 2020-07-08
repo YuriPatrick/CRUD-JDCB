@@ -1,7 +1,7 @@
-package model;
+package com.model;
 
 /**
- * Classe model Produto com os atributos e metodos
+ * CLASSE OBJETO PRODUTO
  **/
 public class Produto {
 

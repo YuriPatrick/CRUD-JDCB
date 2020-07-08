@@ -1,7 +1,7 @@
-package model;
+package com.model;
 
 /**
- * Classe model Login com os atributos e metodos
+ * CLASSE OBJETO LOGIN
  **/
 public class Login {
 

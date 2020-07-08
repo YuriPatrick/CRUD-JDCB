@@ -1,10 +1,10 @@
-package dao;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import model.Login;
+import com.model.Login;
 
 /**
  * Classe responsável na manipulação dos dados no SGBD {@link ManipulaDados}
@@ -41,7 +41,7 @@ public class LoginDao {
 	 */
 	public Login logar(Login login)throws Exception{
 		String sql ="select * from login where usuario =? and senha =?";
-		//Login login2 =null;
+		Login login2 =null;
 		try {
 			conexao = Conexao.getConnection();
 			ps = conexao.prepareStatement(sql);
@@ -49,14 +49,14 @@ public class LoginDao {
 			ps.setString(2, login.getSenha());
 			rs = ps.executeQuery();
 			while (rs.next()){
-				login = new Login();
-				login.setUsuario(rs.getString("usuario"));
-				login.setSenha(rs.getString("senha"));
+				login2 = new Login();
+				login2.setUsuario(rs.getString("usuario"));
+				login2.setSenha(rs.getString("senha"));
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return login;
+		return login2;
 	}
 
 	

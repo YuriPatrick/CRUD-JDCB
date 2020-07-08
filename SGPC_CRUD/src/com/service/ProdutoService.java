@@ -1,4 +1,4 @@
-package service;
+package com.service;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -26,14 +26,17 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import dao.ProdutoDao;
-import model.Produto;
+import com.dao.ProdutoDao;
+import com.model.Produto;
 
 /**
- * Servlet implementado o produto com requisições e respostas, com as operações de
- * cadastrar,consultar,alterar,importar excel,exportar excel e deletar..
- * {@link HttpServlet}
+ * SERVLET IMPLEMENTADO O PRODUTO COM REQUISIÇÕES E RESPOSTAS, COM AS OPERAÇÕES DE
+ * CADASTRAR,CONSULTAR,ALTERAR,IMPORTAR EXCEL,EXPORTAR EXCEL E DELETAR..
+ * 
+ * 
+ * {@LINK HttpServlet}
  */
+
 @WebServlet("/ProdutoService")
 public class ProdutoService extends HttpServlet {
 
@@ -55,10 +58,13 @@ public class ProdutoService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#adiciona(HttpServletRequest request, HttpServletResponse
-	 *      response) Método adiciona com a requisição para salvar os dados no SGBD.
+	 * @see HTTPSERVLET#ADICIONA(HttpServletRequest request) 
+	 * MÉTODO ADICIONA COM A REQUISIÇÃO PARA SALVAR OS DADOS NO SGBD.
+	 * 
+	 * 
 	 * @param HttpServletRequest request
 	 */
+
 	public void adiciona(HttpServletRequest request)
 			throws ServletException, IOException {
 		try {
@@ -80,9 +86,10 @@ public class ProdutoService extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#update(HttpServletRequest request, HttpServletResponse response) 
-	 * Método atualiza os dados no SGBD com a requisição do servlet.
-	 * @param HttpServletRequest request
+	 * @see HTTPSERVLET#UPDATE(HttpServletRequest request) 
+	 * MÉTODO ATUALIZA OS DADOS NO SGBD COM A REQUISIÇÃO DO SERVLET.
+	 * 
+	 * @param HTTPSERVLETREQUEST REQUEST
 	 */
 	public void update(HttpServletRequest request) throws ServletException, IOException {
 		try {
@@ -106,8 +113,9 @@ public class ProdutoService extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#remove(HttpServletRequest request, HttpServletResponse response) 
-	 * Método remove os dados no SGBD com a requisição do servlet.
+	 * @see HTTPSERVLET#REMOVE(HttpServletRequest request) 
+	 * MÉTODO REMOVE OS DADOS NO SGBD COM A REQUISIÇÃO DO SERVLET.
+	 * 
 	 * @param HttpServletRequest request
 	 */
 	public void remove(HttpServletRequest request) throws ServletException, IOException {
@@ -123,8 +131,10 @@ public class ProdutoService extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#getAll(HttpServletRequest request, HttpServletResponse response) 
-	 * Método lista os dados cadastrado no SGBD com a requisição do servlet.
+	 * @see HTTPSERVLET#GETALL(HttpServletRequest request) 
+	 * MÉTODO LISTA OS DADOS CADASTRADO NO SGBD COM A REQUISIÇÃO DO SERVLET.
+	 * 
+	 * 
 	 * @param HttpServletRequest request
 	 */
 	public void getAll(HttpServletRequest request) throws ServletException, IOException {
@@ -137,8 +147,10 @@ public class ProdutoService extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#getProdutoById(HttpServletRequest request, HttpServletResponse response) 
-	 * Método busca os dados por ID cadastrado no SGBD com a requisição do servlet.
+	 * @see HTTPSERVLET#GETPRODUTOBYID(HttpServletRequest request) 
+	 * MÉTODO BUSCA OS DADOS POR ID CADASTRADO NO SGBD COM A REQUISIÇÃO DO SERVLET.
+	 * 
+	 * 
 	 * @param HttpServletRequest request
 	 */
 	public void getProdutoById(HttpServletRequest request)
@@ -154,8 +166,10 @@ public class ProdutoService extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#exportExcel(HttpServletResponse response) 
-	 * Método exporte Excel com a resposta para exporta os dados salvo do SGBD.
+	 * @see HTTPSERVLET#EXPORTEXCEL(HttpServletResponse response) 
+	 * MÉTODO EXPORTE EXCEL COM A RESPOSTA PARA EXPORTA OS DADOS SALVO DO SGBD.
+	 * 
+	 * 
 	 * @param HttpServletResponse response
 	 */
 	public void exportExcel(HttpServletResponse response) throws Exception {
@@ -214,9 +228,12 @@ public class ProdutoService extends HttpServlet {
 
 
 	/**
-	 * @see HttpServlet#importeExcel(HttpServletRequest request, HttpServletResponse
-	 *      response) Método importe Excel com resposta e requisição para importar os dados no SGBD.
+	 * @see HTTPSERVLET#importeExcel(HttpServletRequest request, HttpServletResponse
+	 *      response) MÉTODO IMPORTE EXCEL COM RESPOSTA E REQUISIÇÃO PARA IMPORTAR OS DADOS NO SGBD.
+	 *      
+	 *      
 	 * @param HttpServletRequest request
+	 * @param HttpServletResponse response
 	 */
 	public void importeExcel(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException {
@@ -262,8 +279,9 @@ public class ProdutoService extends HttpServlet {
 	}
 
 	/**
-	 * Método uploadExcel para importar os dados no SGBD e para a listagem da importação do excel.
-	 * @param String upload
+	 * MÉTODO UPLOAD EXCEL PARA IMPORTAR OS DADOS NO SGBD E PARA A LISTAGEM DA IMPORTAÇÃO DO EXCEL.
+	 * 
+	 * @param
 	 */
 	public void uploadExcel(String upload, HttpServletResponse response) throws IOException, ServletException {
 
@@ -313,7 +331,9 @@ public class ProdutoService extends HttpServlet {
 	}
 
 	/**
-	 * Método toList para retornar uma lista de Iterator na leitura das rows e cells do Excel.
+	 * MÉTODO LISTA PARA RETORNAR UMA LISTA DE ITERATOR NA LEITURA DAS ROWS E CELLS DO EXCEL.
+	 * 
+	 * @return
 	 */
 	public List<?> toList(Iterator<?> iterator) {
 		return IteratorUtils.toList(iterator);

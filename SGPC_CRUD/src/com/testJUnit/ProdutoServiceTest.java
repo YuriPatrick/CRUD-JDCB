@@ -1,4 +1,4 @@
-package testJUnit;
+package com.testJUnit;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -9,9 +9,9 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import dao.Conexao;
-import dao.ProdutoDao;
-import model.Produto;
+import com.dao.Conexao;
+import com.dao.ProdutoDao;
+import com.model.Produto;
 
 class ProdutoServiceTest {
 

@@ -4,17 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/home.css">
 <!------ Include the above in your HEAD tag ---------->
-<title>Insert title here</title>
+<title>Home</title>
 </head>
 <body>
 
 <div class="container">
-      <div class="header clearfix">
+	<div class="header clearfix">
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
@@ -35,12 +36,10 @@
            <li class="nav-item">
               <a class="nav-link" href="./logof">Sair</a>
             </li>
-            
           </ul> 
         </nav> 
       </div>
  </div>
       
-
 </body>
 </html>

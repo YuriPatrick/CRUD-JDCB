@@ -1,4 +1,4 @@
-package controller;
+package com.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.ClienteService;
+import com.service.ClienteService;
 
 /**
- * Servlet implementado as requisições e respostas do redirecionamento das
- * paginas jsp e as operações de cadastrar,consultar,alterar,exportar excel e
- * deletar.
+ * SERVLET IMPLEMENTADO AS REQUISIÇÕES E RESPOSTAS DO REDIRECIONAMENTO DAS
+ * PÁGINAS JSP E AS OPERAÇÕES DE CADASTRAR,CONSULTAR,ALTERAR,EXPORTAR EXCEL E
+ * DELETAR.
  */
 @WebServlet({ "/novo-cliente", "/salva-cliente", "/update-cliente", "/remove-cliente", "/lista-clientes", "/id-cliente",
 		"/id-update-cliente", "/exportar-clientes" })
@@ -22,7 +22,7 @@ public class ClienteController extends HttpServlet {
 	private ClienteService cliente = new ClienteService();
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 * @SEE HTTPSERVLET#DOGET(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,7 +35,7 @@ public class ClienteController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 * @see HTTPSERVLET#DOPOST(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -48,51 +48,53 @@ public class ClienteController extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#executa(HttpServletRequest request, HttpServletResponse
-	 *      response) Método executa com a requisição e resposta para
-	 *      cadastrar,alterar,consultar,deletar e exportar excel.
-	 * @param HttpServletRequest  request
-	 * @param HttpServletResponse response
+	 * @see HTTPSERVLET#EXECUTA(HttpServletRequest request, HttpServletResponse
+	 *      response) MÉTODO EXECUTA COM A REQUISIÇÃO E RESPOSTA PARA
+	 *      CADASTRAR,ALTERAR,CONSULTAR,DELETAR E EXPORTAR EXCEL.
+	 *      
+	 *      
+	 * @param request
+	 * @param response
 	 */
 	private void executa(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String uri = request.getRequestURI();
 		String path = request.getContextPath();
 
-		// Novo Cliente
+		// NOVO CLIENTE
 		if (uri.equalsIgnoreCase(path + "/novo-cliente")) {
 			request.getRequestDispatcher("/novo-cliente.jsp").forward(request, response);
 		}
 
-		// Salva Cliente
+		// SALVA CLIENTE
 		if (uri.equalsIgnoreCase(path + "/salva-cliente")) {
 			cliente.adiciona(request);
 			response.sendRedirect(path + "/novo-cliente");
 		}
 
-		// Lista Clientes
+		// LISTA CLIENTES
 		if (uri.equalsIgnoreCase(path + "/lista-clientes")) {
 			cliente.getAll(request);
 			request.getRequestDispatcher("/lista-clientes.jsp").forward(request, response);
 		}
 
-		// Busca o cliente por ID
+		// BUSCA O CLIENTE POR ID
 		if (uri.equalsIgnoreCase(path + "/id-update-cliente")) {
 			cliente.getClienteById(request);
 			request.getRequestDispatcher("/cliente-update.jsp").forward(request, response);
 		}
 
-		// Atualiza o cliente da lista
+		// ATUALIZA O CLIENTE DA LISTA
 		if (uri.equalsIgnoreCase(path + "/update-cliente")) {
 			cliente.update(request);
 			response.sendRedirect(path + "/lista-clientes");
 		}
 
-		// Exporta excel
+		// EXOIRTAR EXCEL
 		if (uri.equalsIgnoreCase(path + "/exportar-clientes")) {
 			cliente.exportExcel(response);
 		}
 
-		// Remove cliente
+		// REMOVE CLIENTE
 		if (uri.equalsIgnoreCase(path + "/remove-cliente")) {
 			cliente.remove(request);
 			response.sendRedirect(path + "/lista-clientes");

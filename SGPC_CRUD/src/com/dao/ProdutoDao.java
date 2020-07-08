@@ -1,4 +1,4 @@
-package dao;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,10 +6,10 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Produto;
+import com.model.Produto;
 
 /**
- * Classe responsável na manipulação dos dados no SGBD {@link ManipulaDados}
+ * CLASSE RESPONSÁVEL NA MANIPULAÇÃO DOS DADOS NO SGBD {@LINK MANIPULADADOS}
  **/
 public class ProdutoDao implements ManipulaDados<Produto> {
 
@@ -17,8 +17,10 @@ public class ProdutoDao implements ManipulaDados<Produto> {
 	private ResultSet rs;
 	private Connection conexao;
 
-	/**
-	 * Método para salvar os dados no SGBD 
+	/***
+	 * METODO SALVA OS DADOS DO PRODUTO NO SGBD
+	 * 
+	 * @param produto
 	 */
 	@Override
 	public void adiciona(Produto produto) throws Exception {
@@ -41,8 +43,10 @@ public class ProdutoDao implements ManipulaDados<Produto> {
 
 	}
 
-	/**
-	 * Método para atualizar os dados no SGBD 
+	/***
+	 * METODO ATUALIZA OS DADOS DO PRODUTO NO SGBD
+	 * 
+	 * @param produto
 	 */
 	@Override
 	public void update(Produto produto) throws Exception {
@@ -65,8 +69,10 @@ public class ProdutoDao implements ManipulaDados<Produto> {
 
 	}
 
-	/**
-	 * Método para remover os dados no SGBD 
+	/***
+	 * METODO REMOVE OS DADOS DO PRODUTO NO SGBD
+	 * 
+	 * @param cliente
 	 */
 	@Override
 	public void remove(Produto produto) throws Exception {
@@ -85,8 +91,10 @@ public class ProdutoDao implements ManipulaDados<Produto> {
 
 	}
 
-	/**
-	 * Método para listar os dados salvo no SGBD 
+	/***
+	 * METODO LISTA OS DADOS DO PRODUTO SALVO NO SGBD
+	 * 
+	 * @return
 	 */
 	@Override
 	public List<Produto> getAll() throws Exception {
@@ -114,8 +122,11 @@ public class ProdutoDao implements ManipulaDados<Produto> {
 		return lista;
 	}
 
-	/**
-	 * Método para buscar os dados pelo ID salvo no SGBD 
+	/***
+	 * METODO BUSCA OS DADOS DO PRODUTO SALVO NO SGBD POR ID
+	 * 
+	 * @param id
+	 * @return
 	 */
 	@Override
 	public Produto getId(int id) throws Exception {

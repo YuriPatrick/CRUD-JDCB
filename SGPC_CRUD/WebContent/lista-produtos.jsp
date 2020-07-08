@@ -5,24 +5,25 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="css/file3.css">
-<title></title>
-<style type="text/css">
-.div-lista {
-	position: absolute;
-	width: 80%;
-	height:300px;
-	border-radius: 5px;
-	background-color: #f2f2f2;
-	padding: 20px;
-	border-radius: 20px;
-	margin: 163px 15px;
-}
-
-</style>
+	<link rel="stylesheet" type="text/css" href="css/file3.css">
+	<style type="text/css">
+		.div-lista {
+			position: absolute;
+			width: 80%;
+			height:300px;
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 20px;
+			border-radius: 20px;
+			margin: 163px 15px;
+		}
+	</style>
+	
+<title>Lista Produto</title>
+	
 </head>
 <body>
-	<jsp:include page="home.jsp" />
+<jsp:include page="home.jsp" />
 	<div class="div-lista">
 		<section>
 			<div class="tbl-header">
@@ -39,23 +40,19 @@
 				</table>
 			</div>
 			<div class="tbl-content">
-
 				<table>
 					<tbody>
 						<c:forEach var="produto" items="${produtos}">
-							<tr>
+							<tr class="header">
 								<td>${produto.id}</td>
 								<td>${produto.nome}</td>
 								<td>${produto.descricao}</td>
 								<td>${produto.qnt}</td>
 								<td>${produto.obs}</td>
-
 							</tr>
 						</c:forEach>
-
 					</tbody>
 				</table>
-
 			</div>
 		</section>
 

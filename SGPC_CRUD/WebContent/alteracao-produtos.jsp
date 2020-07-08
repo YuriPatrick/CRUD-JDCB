@@ -5,26 +5,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" type="text/css" href="css/file3.css">
-<title>Lista de Produto</title>
-<style type="text/css">
-.div-lista {
-	position: absolute;
-	width: 80%;
-	height:300px;
-	border-radius: 5px;
-	background-color: #f2f2f2;
-	padding: 20px;
-	border-radius: 20px;
-	margin: 165px 15px;
-}
+	
+	<link rel="stylesheet" type="text/css" href="css/file3.css">
+	<style type="text/css">
+		.div-lista {
+			position: absolute;
+			width: 80%;
+			height:300px;
+			border-radius: 5px;
+			background-color: #f2f2f2;
+			padding: 20px;
+			border-radius: 20px;
+			margin: 165px 15px;
+		}
+	</style>
 
-</style>
+<title>Lista de Produto</title>
+
 </head>
 <body>
-	<jsp:include page="home.jsp" />
-
-
+	
+<jsp:include page="home.jsp" />
 	<div class="div-lista">
 		<section>
 

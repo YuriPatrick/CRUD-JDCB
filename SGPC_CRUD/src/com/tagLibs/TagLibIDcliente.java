@@ -1,4 +1,4 @@
-package tagLibs;
+package com.tagLibs;
 
 import java.io.IOException;
 

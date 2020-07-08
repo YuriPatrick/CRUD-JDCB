@@ -1,9 +1,9 @@
-package model;
+package com.model;
 
 import javax.persistence.Entity;
 
 /**
- * Classe model Cliente com os atributos e metodos
+ * CLASSE OBJETO CLIENTE
  **/
 @Entity
 public class Cliente {

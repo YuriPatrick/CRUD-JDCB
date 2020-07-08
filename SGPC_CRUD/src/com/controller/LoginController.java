@@ -1,4 +1,4 @@
-package controller;
+package com.controller;
 
 import java.io.IOException;
 
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.LoginDao;
-import model.Login;
+import com.dao.LoginDao;
+import com.model.Login;
 
 /**
  * Servlet implementado as requisições e respostas do redirecionamento das
@@ -95,11 +95,11 @@ public class LoginController extends HttpServlet {
 			String usuario = request.getParameter("usuario");
 			String senha = request.getParameter("senha");
 
-			Login login = new Login();
-			login.setUsuario(usuario);
-			login.setSenha(senha);
+			Login login1 = new Login();
+			login1.setUsuario(usuario);
+			login1.setSenha(senha);
 
-			login = new LoginDao().logar(login);
+			Login login = new LoginDao().logar(login1);
 
 			if (login != null) {
 				HttpSession session = request.getSession();

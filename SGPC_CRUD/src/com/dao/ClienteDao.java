@@ -1,4 +1,4 @@
-package dao;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,18 +6,20 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import model.Cliente;
+import com.model.Cliente;
 
 /**
- * Classe responsável na manipulação dos dados no SGBD {@link ManipulaDados}
+ * CLASSE RESPONSÁVEL NA MANIPULAÇÃO DOS DADOS NO SGBD {@LINK MANIPULADADOS}
  **/
 public class ClienteDao implements ManipulaDados<Cliente> {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	private Connection conexao;
 
-	/**
-	 * Método para salvar os dados no SGBD 
+	/***
+	 * METODO SALVA OS DADOS DO CLIENTE NO SGBD
+	 * 
+	 * @param cliente
 	 */
 	@Override
 	public void adiciona(Cliente cliente) throws Exception {
@@ -41,8 +43,10 @@ public class ClienteDao implements ManipulaDados<Cliente> {
 
 	}
 
-	/**
-	 * Método para atualizar os dados no SGBD 
+	/***
+	 * METODO ATUALIZA OS DADOS DO CLIENTE NO SGBD
+	 * 
+	 * @param cliente
 	 */
 	@Override
 	public void update(Cliente cliente) throws Exception {
@@ -67,8 +71,10 @@ public class ClienteDao implements ManipulaDados<Cliente> {
 
 	}
 
-	/**
-	 * Método para remover os dados no SGBD 
+	/***
+	 * METODO REMOVE OS DADOS DO CLIENTE NO SGBD
+	 * 
+	 * @param cliente
 	 */
 	@Override
 	public void remove(Cliente cliente) throws Exception {
@@ -87,8 +93,10 @@ public class ClienteDao implements ManipulaDados<Cliente> {
 
 	}
 
-	/**
-	 * Método para listar os dados salvo no SGBD 
+	/***
+	 * METODO LISTA OS DADOS DO CLIENTE SALVO NO SGBD
+	 * 
+	 * @return
 	 */
 	@Override
 	public List<Cliente> getAll() throws Exception {
@@ -118,8 +126,11 @@ public class ClienteDao implements ManipulaDados<Cliente> {
 
 	}
 
-	/**
-	 * Método para buscar os dados pelo ID salvo no SGBD 
+	/***
+	 * METODO BUSCA OS DADOS DO CLIENTE SALVO NO SGBD POR ID
+	 * 
+	 * @param id
+	 * @return
 	 */
 	@Override
 	public Cliente getId(int id) throws Exception {

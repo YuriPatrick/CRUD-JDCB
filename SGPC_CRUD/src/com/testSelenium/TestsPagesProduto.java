@@ -1,4 +1,4 @@
-package testSelenium;
+package com.testSelenium;
 
 import static org.junit.jupiter.api.Assertions.fail;
 

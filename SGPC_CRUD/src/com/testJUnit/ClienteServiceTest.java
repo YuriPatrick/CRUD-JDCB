@@ -1,4 +1,4 @@
-package testJUnit;
+package com.testJUnit;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -9,9 +9,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import dao.ClienteDao;
-import dao.Conexao;
-import model.Cliente;
+import com.dao.ClienteDao;
+import com.dao.Conexao;
+import com.model.Cliente;
 
 public class ClienteServiceTest {
 

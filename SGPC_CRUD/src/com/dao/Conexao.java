@@ -1,18 +1,20 @@
-package dao;
+package com.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * Classe de configuração para a conexão com o banco de dados
+ * CLASSE DE CONFIGURAÇÃO PARA A CONEXÃO COM O BANCO DE DADOS
  **/
 public class Conexao {
 
 	private static Connection connection;
 
-	/**
-	 * Metodo Connection para a configuração de conexão com BD
-	 **/
+
+	/***
+	 * METODO CONNECTION PARA A CONFIGURAÇÃO DE CONEXÃO COM BD	 * 
+	 * @return
+	 */
 	public static Connection getConnection() throws Exception {
 
 		try {

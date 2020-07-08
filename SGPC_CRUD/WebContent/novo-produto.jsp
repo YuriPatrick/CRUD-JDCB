@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" type="text/css" href="css/site.css">
 <script type="text/javascript" src="js/controle.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
-<title></title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <style type="text/css">
 .div-externa-novo-produto {
 	position: absolute;
@@ -29,47 +29,49 @@
 }
 </style>
 
+<title>Cadastro Produto</title>
+
 </head>
 <body>
 	<jsp:include page="home.jsp" />
 	<form action="salva-produto" name="dados" method="post">
-
 		<div class="div-externa-novo-produto">
 			<p class="p-novo-produto">Cadastro de Produtos</p>
 			<div class="div-interna-novo-produto">
-
 				<table>
 					<tr>
 						<td>Nome</td>
-						<td><input type="text" class="input-novo-produto" id="nomProd" name="nomProd" required="required" style="width: 315px"></td>
+						<td><input type="text" class="input-novo-produto"
+							id="nomProd" name="nomProd" required="required"
+							style="width: 315px"></td>
 					</tr>
-
 					<tr>
 						<td>Descrição</td>
-						<td><input type="text" class="input-novo-produto" id="descProd" name="descProd" required="required"
+						<td><input type="text" class="input-novo-produto"
+							id="descProd" name="descProd" required="required"
 							style="width: 315px"></td>
 					</tr>
-
-
 					<tr>
 						<td>Quantidade</td>
-						<td><input type="number" class="input-novo-produto" id="qntProd" name="qntProd" value="0" required="required"
+						<td><input type="number" class="input-novo-produto"
+							id="qntProd" name="qntProd" value="0" required="required"
 							style="width: 315px"></td>
 					</tr>
-
 					<tr>
 						<td>Observação</td>
-						<td><input type="text" class="input-novo-produto" id="obsProd" name="obsProd" required="required" style="width: 315px"></td>
+						<td><input type="text" class="input-novo-produto"
+							id="obsProd" name="obsProd" required="required"
+							style="width: 315px"></td>
 					</tr>
-
 				</table>
 
-			
-			<input type="submit" class="btn-novo-produto" id="gravar" value="Gravar"> 
-			<input type="reset" class="btn-novo-produto" id="cancelar" value="Cancelar">
-			
+
+				<input type="submit" class="btn-novo-produto" id="gravar"
+					value="Gravar"> <input type="reset"
+					class="btn-novo-produto" id="cancelar" value="Cancelar">
+
 			</div>
-			
+
 		</div>
 
 	</form>
